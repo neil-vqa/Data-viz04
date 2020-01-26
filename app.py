@@ -47,8 +47,8 @@ def main():
 
 	st.plotly_chart(plot)
 	
-	st.markdown('Data Source: YouGov, 2017')
-	st.markdown('Viz by: nvqa')
+	st.markdown('Data Source: YouGov, 2017 | Viz by: nvqa')
+	
 	
 if __name__ == '__main__':
 	main()
