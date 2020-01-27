@@ -6,6 +6,7 @@ import numpy as np
 
 x_label = ['Ranked 1st', 'Ranked 2nd', 'Ranked 3rd', 'Ranked 4th', 'Ranked 5th', 'Ranked 6th']
 y_label = ['They have similar interests to me','They have/make a decent amount of money','They are intelligent','They have a sense of humour I like','They have a personality I like','They are good looking']
+y_label2 = ['They have similar interests to [them]','They have/make a decent amount of money','They are intelligent','They have a sense of humour [they] like','They have a personality [they] like','They are good looking']
 
 @st.cache
 def data_load():
@@ -21,7 +22,7 @@ def main():
 	option1 = st.selectbox('Select nationality', data['Nationality'].unique())
 	option2 = st.selectbox('Select gender', data['Gender'].unique())
 
-	st.title(option1 + ' ' + option2 + ' prefer...')
+	st.title(option1 + ' ' + option2 + ' prefer someone when...')
 
 	cut_data = data.drop(columns=['Unweighted_Sample','Weighted_Sample'])
 	man = cut_data.loc[(data['Nationality']==option1) & (data['Gender']==option2)]
@@ -39,7 +40,7 @@ def main():
 	
 	z = row_put
 	x = x_label
-	y = y_label
+	y = y_label2
 
 
 	plot = ff.create_annotated_heatmap(z, x=x, y=y, annotation_text=row_label, colorscale='Reds')
