@@ -15,13 +15,13 @@ def main():
 	data = data_load()
 
 	st.title('What do you look for in a romantic partner?')
-	st.write('Survey results of what Men & Women generally prefer for a possible partner.')
+	st.write('Survey results of what characteristics Men & Women generally prefer in their possible partner.')
 	st.write('*Columns show the percentage of men/women ranking a particular characteristic from 1st to 6th.*')
 
 	option1 = st.selectbox('Select nationality', data['Nationality'].unique())
 	option2 = st.selectbox('Select gender', data['Gender'].unique())
 
-	st.title(option1 + ' ' + option2)
+	st.title(option1 + ' ' + option2 + ' prefer...')
 
 	cut_data = data.drop(columns=['Unweighted_Sample','Weighted_Sample'])
 	man = cut_data.loc[(data['Nationality']==option1) & (data['Gender']==option2)]
