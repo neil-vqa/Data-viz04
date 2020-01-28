@@ -2,6 +2,7 @@ import streamlit as st
 import plotly.figure_factory as ff
 import pandas as pd
 import numpy as np
+import plotly.graph_objects as do
 
 
 x_label = ['Ranked 1st', 'Ranked 2nd', 'Ranked 3rd', 'Ranked 4th', 'Ranked 5th', 'Ranked 6th']
@@ -44,7 +45,7 @@ def main():
 
 
 	plot = ff.create_annotated_heatmap(z, x=x, y=y, annotation_text=row_label, colorscale='Reds')
-	plot.update_layout(width=900,height=800)
+	plot.update_layout(width=900,height=800,margin= do.layout.Margin(l=0,r=0,t=55,b=0))
 
 	st.plotly_chart(plot)
 	
