@@ -7,7 +7,7 @@ import plotly.graph_objects as do
 
 x_label = ['Ranked 1st', 'Ranked 2nd', 'Ranked 3rd', 'Ranked 4th', 'Ranked 5th', 'Ranked 6th']
 y_label = ['They have similar interests to me','They have/make a decent amount of money','They are intelligent','They have a sense of humour I like','They have a personality I like','They are good looking']
-y_label2 = ['...have similar interests to [them]','...have/make a decent amount of money','...are intelligent','...have a sense of humour [they] like','...have a personality [they] like','...are good looking']
+y_label2 = ['...[has] similar interests to [them]','...[has/makes] a decent amount of money','...[is] intelligent','...[has] a sense of humour [they] like','...[has] a personality [they] like','...[is] good looking']
 
 @st.cache
 def data_load():
@@ -23,7 +23,7 @@ def main():
 	option1 = st.selectbox('Select nationality', data['Nationality'].unique())
 	option2 = st.selectbox('Select gender', data['Gender'].unique())
 
-	st.title(option1 + ' ' + option2 + ' prefer a partner who...')
+	st.title(option1 + ' ' + option2 + ' generally prefer a partner who...')
 
 	cut_data = data.drop(columns=['Unweighted_Sample','Weighted_Sample'])
 	man = cut_data.loc[(data['Nationality']==option1) & (data['Gender']==option2)]
